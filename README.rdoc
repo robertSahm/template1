@@ -5,34 +5,4 @@ LESS
 sqlite in development
 pg in production
 
-thin web server
-
-to use this template ....
-
-1. rake db:migrate VERSION=0
-2. delete channels / videos / products 
-	- migrations, controllers, models, helpers, .css, views , routes , links in footer , links in header
-3. re-migrate the db
-4. remove video feeds in home/news
-5. replace PAGE_NAME in sessions_helper.rb with new app name
-6. delete @video references from user#show 
-7. delete @video reference from shared/micropost_form.htmnl.erb
-8. make a new admin user w/ update_attributes, admin:true, password, and password_confirmation
-9. change layout in header for wireframes to 
-		<ul class="nav">  
-		  <li><%= link_to "wf 1", theatre_path %></li>
-		  <li><%= link_to "wf 2", screening_room_path %></li>
-		  <li><%= link_to "wf 3", cutting_room_path %></li>
-		  <li><%= link_to "wf 4", suitcase_path %></li>
-		  <li><%= link_to "wf 5", learn_path %></li>
-		</ul>
-10. remove @video references from wireframe controller
-11. delete wireframe views content and replace with
-		<div class="center hero-unit">
-		  <div class="row-fluid">
-		  </div>
-		</div>
-12. remove render call from home#learn
-13. git init
-14. 
-
+thin web server or webbrick
