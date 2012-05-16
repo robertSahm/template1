@@ -1,0 +1,187 @@
+@import "twitter/bootstrap";
+body { padding-top: 100px; }
+
+// import responsive layout
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+//@fontAwesomeEotPath: asset-path('fontawesome-webfont.eot');
+//@fontAwesomeWoffPath: asset-path('fontawesome-webfont.woff');
+//@fontAwesomeTtfPath: asset-path('fontawesome-webfont.ttf');
+//@fontAwesomeSvgzPath: asset-path('fontawesome-webfont.svgz');
+//@fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
+
+// Font Awesome
+// @import "fontawesome";
+
+
+
+// Your custom stylesheets goes here (override Less here)
+
+
+@navbarBackground: #555;
+@navbarBackgroundHighlight: #888;
+@navbarText: #eee;
+@navbarLinkColor: #eee;
+@bodyBackground: #eee;
+@navbarHeight: 60px;
+@navbarLinkBackgroundHover: transparent;
+.navbar .brand {
+  color: #FAFFB8;
+}
+
+ul {
+	list-style-type: none;
+}
+/* forms */
+input, textarea, select, .uneditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	height: 50px;
+	margin-bottom: 15px;
+	/* @include box_sizing; */
+}
+
+#error_explanation {
+	color:#f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+
+
+/* sidebar */
+.stats {
+	overflow: auto;
+	a {
+	float: left;
+	padding: 0 10px;
+	border-left: 1px solid @grayLighter;
+	color: gray;
+		&:first-child {
+			padding-left: 0;
+			border: 0;
+		}
+		&:hover {
+			text-decoration: none;
+			color: #33f;
+		}
+	}
+	strong {
+		display: block;
+	}
+}
+.user_avatars {
+	overflow: auto;
+	margin-top: 10px;
+	.gravatar {
+		margin: 1px 1px;
+	}
+}
+
+.gravatar {
+	width: 80px;
+	height: 80px;
+}
+
+.files-bins {
+	border : 3px solid #aaa;
+}
+
+.vertical {
+	width : 180px;
+	padding: 20px;
+}
+
+.box {
+	border : 2px solid grey;
+	height : 400px;
+}
+
+.timeline {
+	border : 2px solid grey;
+	height : 50px;
+}
+.overlay {
+	border : 2px dotted black;
+	width : 100px;
+	height : 400px;
+	position: fixed;
+	top : 200px;
+	left : 900px;
+	
+}
+
+/* microposts */
+.microposts {
+	list-style: none;
+	height: 150px;
+	margin: 10px 0 10px 0;
+	li {
+		padding: 25px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+}
+.user {
+	display: block;
+}
+.content {
+	/*display: block;*/
+}
+.timestamp {
+	color: @grayLight;
+	display: block;
+}
+ol.gravatar {
+	a {
+		float: left;
+	}
+}
+.gravatar {
+	padding: 10px;
+	margin-right: 10px;
+}
+aside {
+	textarea {
+		height: 80px;
+		margin-bottom: 5px;
+	}
+}
+
+/* stats */
+.stats {
+overflow: auto;
+a {
+float: left;
+padding: 0 10px;
+border-left: 1px solid @grayLighter;
+color: gray;
+&:first-child {
+padding-left: 0;
+border: 0;
+}
+&:hover {
+text-decoration: none;
+color: #33f;
+}
+}
+strong {
+display: block;
+}
+}
+.user_avatars {
+overflow: auto;
+margin-top: 10px;
+.gravatar {
+margin: 1px 1px;
+}
+}
+
+

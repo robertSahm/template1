@@ -1,0 +1,9 @@
+<% full_url = "../assets/video/#{@video.url}" %>
+<p><%= full_url %></p>
+
+<video id="videoShow" controls width="<%= @video.width %>" height ="<%= @video.height %>" preload="auto" poster="<%= full_url %>.jpg">
+  <source src="<%= full_url %>.mp4" type="video/mp4" />
+  <source src="<%= full_url %>.ogv" type="video/ogg" />
+  <p>Your browser does not support video</p>
+  
+</video>

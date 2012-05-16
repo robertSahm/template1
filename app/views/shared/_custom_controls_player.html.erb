@@ -1,0 +1,95 @@
+<% full_url = "../assets/video/#{@video.url}" %>
+<p><%= full_url %></p>
+
+<video id="videoShow" controls width="<%= @video.width %>" height ="<%= @video.height %>" preload="auto" poster="<%= full_url %>.jpg">
+  <source src="<%= full_url %>.mp4" type="video/mp4" />
+  <source src="<%= full_url %>.ogv" type="video/ogg" />
+  <p>Your browser does not support video</p>
+  
+</video>
+
+<div id="video_controls">
+  <div id="play_toggle" class="player-button">Play</div>
+  <div id="progress">
+    <div id="load_progress"></div>
+    <div id="play_progress"></div>
+  </div>
+  <div id="time">
+    <span id="current_time">00:00</span> /
+    <span id="duration">00:00</span>
+  </div> 
+</div>
+
+<script>
+  $('#videoShow').bind("ended", function() {
+    this.play();
+  });
+  
+  $(function() {
+    
+    // doesnt render controls if HTML5 video type is not supported //
+    if (!document.createElement('video').canPlayType) {
+      $('#video_controls').hide();
+      return;
+    }
+
+    var video = document.getElementById('videoShow');
+    
+    // Play/Pause button ===========================================//
+    $("#play_toggle").bind('click', function() {
+      if (video.paused) {
+        video.play();
+        $(this).html("Pause");
+      } else {
+        video.pause();
+        $(this).html("Play");
+      }
+    });
+    
+    // Progress Bar code ===========================================//
+    $("#videoShow").bind("timeupdate", function() {
+      var timePercent = (this.currentTime / this.duration) * 100;
+      $("#play_progress").css({ width : timePercent + "%" });
+    });
+    
+    $(video).bind("progress", function() {
+      updateLoadProgress(this);
+    });
+    $(video).bind("loadeddata", function() {
+      updateLoadProgress(this);
+    });
+    $(video).bind("canplaythrough", function() {
+      updateLoadProgress(this);
+    });
+    $(video).bind("playing", function() {
+      updateLoadProgress(this);
+    });
+    
+    function updateLoadProgress(video_player) {
+      if (video_player.buffered.length > 0) {
+        var percent = (video_player.buffered.end(0) / video_player.duration) * 100;
+        $('#load_progress').css({ width: percent + '%'});
+      } 
+    }
+    
+    // Time Display ==================================================//
+    $(video).bind("timeupdate", function() {
+      $("#current_time").html(formatTime(this.currentTime));
+    });
+    $(video).bind("durationchange", function() {
+      $("#duration").html(formatTime(this.duration));
+    });
+    function formatTime(seconds) {
+      var seconds = Math.round(seconds);
+      var minutes = Math.floor(seconds / 60);
+      seconds = Math.floor(seconds % 60);
+      minutes = (minutes >= 10) ? minutes : "0" + minutes;
+      seconds = (seconds >= 10) ? seconds : "0" + seconds;
+      return minutes + ":" + seconds;
+    }
+    
+  });
+  
+
+
+</script>

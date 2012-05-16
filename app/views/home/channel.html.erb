@@ -1,0 +1,28 @@
+<div class="center hero-unit">
+<% if !signed_in? %>
+  <div class="row">
+    <h1>Welcome to <%= @page_name %>!</h1>
+    <h2>
+      Wibble is the best video sharing site and will soon replace all television networks worldwide
+
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<% else %>
+    <aside class="span8">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+      <%= render 'shared/stats' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="span4">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+<% end %>
+  </div>
+</div>
